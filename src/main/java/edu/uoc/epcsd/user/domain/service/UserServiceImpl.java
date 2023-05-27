@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
     }
 
     public Set<User> getUsersToAlert(Long productId, LocalDate availableOnDate) {
-        return alertRepository.findAlertsByProductIdAndDate(productId, availableOnDate).stream().collect(Collectors.toList())
+        return alertRepository.findAlertsByProductAndDate(productId, availableOnDate).stream().collect(Collectors.toList())
                 .stream().map(alert -> userRepository.findUserById(alert.getUserId()).get()).collect(Collectors.toSet());
     }
 }

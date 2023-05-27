@@ -33,8 +33,13 @@ public class AlertRepositoryImpl implements AlertRepository {
     }
 
     @Override
-    public List<Alert> findAlertsByProductIdAndDate(Long productId, LocalDate availableOnDate) {
+    public List<Alert> findAlertsByProductAndDate(Long productId, LocalDate availableOnDate) {
         return jpaRepository.findAllByProductIdAndFromLessThanEqualAndToGreaterThanEqual(productId, availableOnDate, availableOnDate).stream().map(AlertEntity::toDomain).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Alert> findAlertsByUserAndInterval(Long userId, LocalDate fromDate, LocalDate toDate) {
+        return jpaRepository.findAlertsByUserAndInterval(userId, fromDate, toDate).stream().map(AlertEntity::toDomain).collect(Collectors.toList());
     }
 
     @Override

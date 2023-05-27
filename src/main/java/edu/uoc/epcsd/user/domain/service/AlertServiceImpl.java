@@ -8,9 +8,9 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,6 +31,16 @@ public class AlertServiceImpl implements AlertService {
 
     public Optional<Alert> findAlertById(Long id) {
         return alertRepository.findAlertById(id);
+    }
+
+    @Override
+    public List<Alert> findAlertsByProductAndDate(Long productId, LocalDate availableOnDate) {
+        return alertRepository.findAlertsByProductAndDate(productId, availableOnDate);
+    }
+
+    @Override
+    public List<Alert> findAlertsByUserAndInterval(Long userId, LocalDate fromDate, LocalDate toDate) {
+        return alertRepository.findAlertsByUserAndInterval(userId, fromDate, toDate);
     }
 
     public Long createAlert(Alert alert) {
