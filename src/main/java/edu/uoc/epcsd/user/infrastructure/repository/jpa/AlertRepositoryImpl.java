@@ -5,8 +5,6 @@ import edu.uoc.epcsd.user.domain.Alert;
 import edu.uoc.epcsd.user.domain.repository.AlertRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
@@ -45,17 +43,11 @@ public class AlertRepositoryImpl implements AlertRepository {
     @Override
     public Long createAlert(Alert alert) {
 
-        UserEntity userEntity =  jpaUserRepository.findById(alert.getUserId()).orElseThrow(IllegalArgumentException::new);
+        UserEntity userEntity = jpaUserRepository.findById(alert.getUserId()).orElseThrow(IllegalArgumentException::new);
 
         AlertEntity alertEntity = AlertEntity.fromDomain(alert);
         alertEntity.setUser(userEntity);
 
         return jpaRepository.save(alertEntity).getId();
     }
-
-
-
-//    @Query("select a from Alert a where a.productId = ?1 and a.from <= ?2 and a.to >= ?2")
-//    List<Alert> findAlertsByProductIdAndInterval(Long productId, LocalDate availableOnDate);
-
 }

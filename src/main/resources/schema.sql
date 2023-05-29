@@ -4,4 +4,4 @@ VALUES ('Juan Palomo', 'juanpa@gmail.com', '12345', 654233521)
      , ('José Manuel García', 'jmgarcia@terra.es', 'manue', 608721126)
      , ('Carles Vidal', 'vidal_c@gmail.com', 'admin', 654233521)
      , ('Nil Carbonell', 'neil@gmail.com', 'root', 654233521)
-     ;
+;

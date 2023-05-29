@@ -1,14 +1,13 @@
 package edu.uoc.epcsd.user.infrastructure.repository.jpa;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import edu.uoc.epcsd.user.domain.Alert;
 import edu.uoc.epcsd.user.domain.User;
 import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
 
-@Entity(name="User")
+@Entity(name = "User")
 @ToString
 @Getter
 @Setter
@@ -16,7 +15,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="`user`")
+@Table(name = "`user`")
 public class UserEntity implements DomainTranslatable<User> {
 
     @Id

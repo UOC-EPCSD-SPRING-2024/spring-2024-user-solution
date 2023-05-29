@@ -22,11 +22,11 @@ public class AlertEntity implements DomainTranslatable<Alert> {
     private Long id;
 
     @Column(name = "`from`", nullable = false, columnDefinition = "DATE")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate from;
 
     @Column(name = "`to`", nullable = false, columnDefinition = "DATE")
-    @JsonFormat(pattern="dd-MM-yyyy")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate to;
 
     @Column(name = "productId", nullable = false)

@@ -1,12 +1,9 @@
 package edu.uoc.epcsd.user.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
 
-import javax.persistence.*;
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @ToString
 @Getter

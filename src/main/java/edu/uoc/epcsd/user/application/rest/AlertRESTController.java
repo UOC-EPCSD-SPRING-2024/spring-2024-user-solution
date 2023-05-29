@@ -14,6 +14,7 @@ import org.springframework.web.client.RestClientException;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.time.LocalDate;
@@ -61,7 +62,7 @@ public class AlertRESTController {
     }
 
     @PostMapping
-    public ResponseEntity<Long> createAlert(@RequestBody CreateAlertRequest createAlertRequest) {
+    public ResponseEntity<Long> createAlert(@RequestBody @Valid CreateAlertRequest createAlertRequest) {
         log.trace("createAlert");
 
         try {

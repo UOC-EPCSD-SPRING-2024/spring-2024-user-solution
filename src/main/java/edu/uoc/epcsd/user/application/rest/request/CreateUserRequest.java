@@ -2,21 +2,22 @@ package edu.uoc.epcsd.user.application.rest.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NonNull;
+
+import javax.validation.constraints.NotBlank;
 
 @Getter
 @AllArgsConstructor
 public final class CreateUserRequest {
 
-    @NonNull
+    @NotBlank
     private final String fullName;
 
-    @NonNull
+    @NotBlank
     private final String email;
 
-    @NonNull
+    @NotBlank
     private final String password;
 
-    @NonNull
+    @NotBlank
     private final String phoneNumber;
 }

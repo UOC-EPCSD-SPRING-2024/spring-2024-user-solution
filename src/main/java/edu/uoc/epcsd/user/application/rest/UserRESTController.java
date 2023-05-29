@@ -13,6 +13,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.net.URI;
 import java.time.LocalDate;
@@ -52,7 +53,7 @@ public class UserRESTController {
     }
 
     @PostMapping
-    public ResponseEntity<Long> createUser(@RequestBody CreateUserRequest createUserRequest) {
+    public ResponseEntity<Long> createUser(@RequestBody @Valid CreateUserRequest createUserRequest) {
         log.trace("createUser");
 
         log.trace("Creating user " + createUserRequest);
