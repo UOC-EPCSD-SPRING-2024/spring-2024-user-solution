@@ -44,6 +44,15 @@ public class UserRESTController {
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/byEmail/{email}")
+    @ResponseStatus(HttpStatus.OK)
+    public ResponseEntity<GetUserResponse> getUserByEmail(@PathVariable @NotNull String email) {
+        log.trace("getUserByEmail");
+
+        return userService.findUserByEmail(email).map(user -> ResponseEntity.ok().body(GetUserResponse.fromDomain(user)))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @GetMapping("/toAlert")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<GetUserResponse[]> getUsersToAlert(@RequestParam @NotNull Long productId, @RequestParam @NotNull @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate availableOnDate) {

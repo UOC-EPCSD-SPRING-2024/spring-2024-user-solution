@@ -11,5 +11,7 @@ public interface UserRepository {
 
     Optional<User> findUserById(Long id);
 
+    Optional<User> findUserByEmail(String email);
+
     Long createUser(User user);
 }

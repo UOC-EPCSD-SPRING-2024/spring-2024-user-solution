@@ -27,6 +27,10 @@ public class UserRepositoryImpl implements UserRepository {
         return jpaRepository.findById(id).map(UserEntity::toDomain);
     }
 
+    public Optional<User> findUserByEmail(String email) {
+        return jpaRepository.findUserEntityByEmail(email).map(UserEntity::toDomain);
+    }
+
 //    @Override
 //    public List<User> findAlertsByProductIdAndDate(Long productId, LocalDate availableOnDate) {
 //        return null;

@@ -13,6 +13,8 @@ public interface UserService {
 
     Optional<User> findUserById(Long id);
 
+    Optional<User> findUserByEmail(String email);
+
     Set<User> getUsersToAlert(Long productId, LocalDate availableOnDate);
 
     Long createUser(User user);
